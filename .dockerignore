@@ -1,0 +1,74 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+env/
+venv/
+ENV/
+.venv/
+
+# Local config & env files
+*.env
+*.env.*
+!.env.example
+
+# Git
+.git
+.gitignore
+
+# macOS
+.DS_Store
+
+# IDE / editor folders
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Byte-compiled / build artifacts
+*.egg
+*.egg-info/
+dist/
+build/
+*.manifest
+*.spec
+
+# Coverage / test reports
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+.tox/
+.nox/
+
+# Node
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Logs & runtime files
+*.log
+*.pid
+*.sock
+
+# Media & static (if collected outside Docker)
+media/
+static/
+staticfiles/
+
+# Docker
+Dockerfile
+docker-compose.yml
+
+# Backup / temp files
+*~
+*.bak
+*.tmp
+*.swp

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen py-10 px-4">
+
+    {% load widget_tweaks %}
+
+    <div class="max-w-5xl mx-auto bg-white shadow-md rounded-lg p-6">
+        <div class="flex items-center justify-between mb-6">
+            <h2 class="text-2xl font-bold text-gray-800">Student List</h2>
+            <a href="{% url 'add_student' %}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Add Student</a>
+        </div>
+
+        {% if students %}
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border border-gray-200 rounded-md shadow-sm">
+                    <thead class="bg-gray-100 text-gray-700">
+                        <tr>
+                            <th class="py-3 px-4 border-b">Name</th>
+                            <th class="py-3 px-4 border-b">Email</th>
+                            <th class="py-3 px-4 border-b">Age</th>
+                            <th class="py-3 px-4 border-b text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for student in students %}
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="py-3 px-4 border-b">{{ student.name }}</td>
+                                <td class="py-3 px-4 border-b">{{ student.email }}</td>
+                                <td class="py-3 px-4 border-b">{{ student.age }}</td>
+                                <td class="py-3 px-4 border-b text-center">
+                                    <a href="{% url 'edit_student' student.pk %}" class="text-indigo-600 hover:underline mr-4">Edit</a>
+                                    <a href="{% url 'delete_student' student.pk %}" class="text-red-600 hover:underline">Delete</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="bg-yellow-100 border border-yellow-300 text-yellow-800 px-4 py-3 rounded">
+                No students found.
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
+
+{% endblock %}
